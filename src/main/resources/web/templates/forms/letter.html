@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-6 mx-auto">
+        <div class="card rounded-1">
+          <div class="card-header">
+            <h3 class="mb-0">Letter to Future</h3>
+          </div>
+          <div class="card-body">
+            <form method="post" th:object="${model}">
+
+              <div class="form-group">
+                <label>Recipient</label>
+                <input type="email" th:field="*{email}" class="form-control rounded-1" placeholder="Email" required />
+                <small class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+              </div>
+
+              <div class="form-group">
+                <label>Content</label>
+                <textarea th:field="*{content}" rows="4" class="form-control rounded-1" placeholder="Content" required></textarea>
+                <small class="alert alert-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></small>
+              </div>
+
+              <div class="form-group">
+                <label>Send Time</label>
+                <input type="date" th:field="*{sendDate}" class="form-control rounded-1" required />
+                <small class="alert alert-danger" th:if="${#fields.hasErrors('sendDate')}" th:errors="*{sendDate}"></small>
+              </div>
+
+              <button type="submit" class="btn btn-success float-right">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
