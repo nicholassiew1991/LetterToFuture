@@ -24,19 +24,19 @@
               <div class="form-group">
                 <label>Recipient</label>
                 <input type="email" th:field="*{email}" class="form-control rounded-1" placeholder="Email" required />
-                <small class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
               </div>
 
               <div class="form-group">
                 <label>Content</label>
                 <textarea th:field="*{content}" rows="4" class="form-control rounded-1" placeholder="Content" required></textarea>
-                <small class="alert alert-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></small>
+                <small th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></small>
               </div>
 
               <div class="form-group">
                 <label>Send Time</label>
                 <input type="date" th:field="*{sendDate}" class="form-control rounded-1" required />
-                <small class="alert alert-danger" th:if="${#fields.hasErrors('sendDate')}" th:errors="*{sendDate}"></small>
+                <small th:if="${#fields.hasErrors('sendDate')}" th:errors="*{sendDate}"></small>
               </div>
 
               <button type="submit" class="btn btn-success float-right">Submit</button>

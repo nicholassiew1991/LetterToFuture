@@ -3,3 +3,16 @@ spring:
     prefix: classpath:/web/templates/
     suffix: .html
     encoding: UTF-8
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lettertofuture
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
