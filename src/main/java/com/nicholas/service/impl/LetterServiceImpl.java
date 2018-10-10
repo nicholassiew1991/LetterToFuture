@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Service
 public class LetterServiceImpl implements LetterService {
@@ -15,7 +16,8 @@ public class LetterServiceImpl implements LetterService {
 	@Autowired
 	private LetterJpaRepository letterJpaRepository;
 
-	public void save(LetterForm form) throws Exception {
+	@Override
+	public Letter save(LetterForm form) throws Exception {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -25,7 +27,12 @@ public class LetterServiceImpl implements LetterService {
 		letter.setSendDate(sdf.parse(form.getSendDate()));
 		letter.setIsSent(false);
 
-		letterJpaRepository.save(letter);
+		return letterJpaRepository.save(letter);
+	}
+
+	@Override
+	public List<Letter> getLetterToSend() {
+		return letterJpaRepository.getLetterToSend();
 	}
 
 }
