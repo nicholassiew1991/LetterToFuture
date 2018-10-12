@@ -56,6 +56,6 @@ public class MainController {
 			e.printStackTrace();
 		}
 
-		return "forms/letter";
+		return "redirect:/forms/letter";
 	}
 }

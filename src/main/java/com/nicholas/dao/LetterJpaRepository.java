@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface LetterJpaRepository extends JpaRepository<Letter, Long> {
 
-	@Query("FROM Letter l WHERE l.sent = false AND l.sendDate <= CURRENT_DATE")
+	@Query("FROM Letter l WHERE l.isSent = false AND l.sendDate <= CURRENT_DATE")
 	List<Letter> getLetterToSend();
 }

@@ -9,5 +9,7 @@ public interface LetterService {
 
 	Letter save(LetterForm form) throws Exception;
 
+	Letter save(Letter letter);
+
 	List<Letter> getLetterToSend();
 }

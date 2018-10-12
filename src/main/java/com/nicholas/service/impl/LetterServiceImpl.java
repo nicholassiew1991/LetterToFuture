@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -15,6 +16,11 @@ public class LetterServiceImpl implements LetterService {
 
 	@Autowired
 	private LetterJpaRepository letterJpaRepository;
+
+	@Override
+	public List<Letter> getLetterToSend() {
+		return letterJpaRepository.getLetterToSend();
+	}
 
 	@Override
 	public Letter save(LetterForm form) throws Exception {
@@ -31,8 +37,12 @@ public class LetterServiceImpl implements LetterService {
 	}
 
 	@Override
-	public List<Letter> getLetterToSend() {
-		return letterJpaRepository.getLetterToSend();
+	public Letter save(Letter letter) {
+		return letterJpaRepository.save(letter);
+	}
+
+	public void update(Letter letter) {
+		//letterJpaRepository.save()
 	}
 
 }
