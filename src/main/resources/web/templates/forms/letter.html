@@ -21,6 +21,8 @@
           <div class="card-body">
             <form method="post" th:object="${model}">
 
+              <span th:text="${message}">Message</span>
+
               <div class="form-group">
                 <label>Recipient</label>
                 <input type="email" th:field="*{email}" class="form-control rounded-1" placeholder="Email" required />

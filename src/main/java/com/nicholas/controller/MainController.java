@@ -56,6 +56,8 @@ public class MainController {
 			e.printStackTrace();
 		}
 
-		return "redirect:/forms/letter";
+		model.addAttribute("message", "Letter submitted.");
+		model.addAttribute(MODEL, new LetterForm());
+		return "forms/letter";
 	}
 }
